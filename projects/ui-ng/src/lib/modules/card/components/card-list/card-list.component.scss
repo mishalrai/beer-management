@@ -1,0 +1,14 @@
+@import "../../../../../assets/scss/variables";
+
+$card-list-prefix: ".card-list";
+
+#{$card-list-prefix} {
+    ::ng-deep {
+        > * {
+            &:not(:last-child) {
+                display: block;
+                margin-bottom: $spacer * 6;
+            }
+        }
+    }
+}

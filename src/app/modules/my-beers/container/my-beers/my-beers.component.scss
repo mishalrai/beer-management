@@ -1,0 +1,9 @@
+.add-new-wrapper {
+    position: relative;
+
+    ui-button {
+        position: absolute;
+        right: 0;
+        bottom: calc(100% + 18px);
+    }
+}

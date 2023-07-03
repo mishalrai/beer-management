@@ -1,0 +1,18 @@
+<div class="ui-card" *ngIf="item">
+  <div
+    class="ui-card__image"
+    *ngIf="item.image_url"
+    ngbTooltip="Tooltip on top"
+  >
+    <img [src]="item.image_url" alt="Beer image" height="100" />
+  </div>
+  <div class="ui-card__wrapper">
+    <h3 class="ui-card__name" *ngIf="item.name">{{ item.name }}</h3>
+    <div class="ui-card__category" *ngIf="item.tagline">
+      {{ item.tagline }}
+    </div>
+    <div class="ui-card__description" *ngIf="item.description">
+      {{ item.description }}
+    </div>
+  </div>
+</div>

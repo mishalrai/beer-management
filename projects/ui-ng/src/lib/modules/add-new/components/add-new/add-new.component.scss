@@ -1,0 +1,20 @@
+@import "../../../../../assets/scss/variables";
+
+$add-new-prefix: ".ui-add-new";
+$add-new-bg-color: #fafafa;
+$add-new-height: 600px;
+$add-new-top-padding: 15%;
+
+#{$add-new-prefix} {
+    height: $add-new-height;
+    background: $add-new-bg-color;
+    text-align: center;
+    padding-top: $add-new-top-padding;
+    color: $text-color;
+    line-height: 1.8;
+
+    a {
+        text-decoration: none;
+        color: $primary-color;
+    }
+}

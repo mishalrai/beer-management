@@ -1,0 +1,48 @@
+@import "../../../../../assets/scss/variables";
+@import "../../../../../assets/scss/mixins";
+
+$card-prefix: ".ui-card";
+$name-font-size: 20px;
+$card-padding: $spacer * 8 $spacer * 4 $spacer * 8;
+$card-image-size: 80px;
+
+#{$card-prefix} {
+    box-shadow: 0 0 16px 0px rgba($black-color, 0.2);
+    padding: $card-padding;
+    display: flex;
+    border-radius: $border-radius;
+    transition: all 0.2s;
+    cursor: pointer;
+
+    &:hover {
+        background-color: lighten($primary-color, 50%);
+    }
+}
+
+#{$card-prefix}__wrapper {
+    margin-left: $spacer * 4;
+}
+
+#{$card-prefix}__image {
+    width: $card-image-size;
+    display: flex;
+    flex: 0 0 auto;
+    align-items: center;
+    justify-content: center;
+}
+
+#{$card-prefix}__name {
+    color: $black-color;
+    margin-bottom: $spacer * 2;
+    font-size: $name-font-size;
+}
+
+#{$card-prefix}__category {
+    color: $secondary-color;
+    margin-bottom: $spacer * 2;
+}
+
+#{$card-prefix}__description {
+    color: $text-color;
+    @include line-clamp(2);
+}

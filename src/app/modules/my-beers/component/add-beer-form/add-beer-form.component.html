@@ -1,0 +1,103 @@
+<form
+  [formGroup]="form"
+  (ngSubmit)="handleSubmit()"
+  #addBeerForm="ngForm"
+  class="add-user-form"
+>
+  <!-- It's static Beer image -->
+  <div class="add-user-form__image mb-4" *ngIf="imgUrl">
+    <img [src]="imgUrl" height="80" alt="Beer image" />
+  </div>
+
+  <div class="mb-3">
+    <input
+      type="text"
+      class="form-control"
+      [class.is-invalid]="
+        (addBeerForm.submitted && form.get('name')?.invalid) ||
+        (form.get('name')?.touched && form.get('name')?.invalid)
+      "
+      id="name"
+      placeholder="Beer name*"
+      formControlName="name"
+    />
+
+    <div
+      *ngIf="
+        addBeerForm.submitted ||
+        (form.get('name')?.touched && form.get('name')?.invalid)
+      "
+    >
+      <div
+        class="invalid-feedback d-block"
+        *ngIf="form.get('name')?.errors?.['required']"
+      >
+        Beer name is required
+      </div>
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <input
+      class="form-control"
+      [class.is-invalid]="
+        (addBeerForm.submitted && form.get('genre')?.invalid) ||
+        (form.get('genre')?.touched && form.get('genre')?.invalid)
+      "
+      type="text"
+      name="genre"
+      placeholder="Genre*"
+      formControlName="genre"
+      class="form-control"
+      id="genre"
+    />
+    <div
+      *ngIf="
+        (addBeerForm.submitted && form.get('genre')?.invalid) ||
+        (form.get('genre')?.touched && form.get('genre')?.invalid)
+      "
+    >
+      <div
+        class="invalid-feedback d-block"
+        *ngIf="form.get('genre')?.errors?.['required']"
+      >
+        Genre is required
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <textarea
+      class="form-control"
+      [class.is-invalid]="
+        (addBeerForm.submitted && form.get('description')?.invalid) ||
+        (form.get('description')?.touched && form.get('description')?.invalid)
+      "
+      name="description"
+      placeholder="Description*"
+      formControlName="description"
+      cols="20"
+      id="description"
+    ></textarea>
+    <div
+      *ngIf="
+        (addBeerForm.submitted && form.get('description')?.invalid) ||
+        (form.get('description')?.touched && form.get('description')?.invalid)
+      "
+    >
+      <div
+        class="invalid-feedback d-block"
+        *ngIf="form.get('description')?.errors?.['required']"
+      >
+        Description is required
+      </div>
+    </div>
+  </div>
+
+  <div class="add-user-form__button-group mt-4">
+    <ui-button class="ui-button-text me-2" (click)="handleCancel($event)">
+      Cancel
+    </ui-button>
+    <ui-button class="ui-button" [buttonType]="'submit'"> Save </ui-button>
+  </div>
+</form>

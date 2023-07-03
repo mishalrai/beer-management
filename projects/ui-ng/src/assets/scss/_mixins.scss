@@ -1,0 +1,10 @@
+%line-clamp-common-style {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+@mixin line-clamp($line) {
+    -webkit-line-clamp: #{$line};
+    @extend %line-clamp-common-style;
+}

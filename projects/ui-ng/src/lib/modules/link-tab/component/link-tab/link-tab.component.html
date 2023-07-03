@@ -1,0 +1,12 @@
+<ul class="ui-link-tabs">
+  <li *ngFor="let item of items">
+    <a
+      class="ui-link-tabs__link"
+      routerLink="{{ item.route }}"
+      (click)="handleClick(item)"
+      [class.active]="item.isActive"
+    >
+      {{ item.label }}
+    </a>
+  </li>
+</ul>
