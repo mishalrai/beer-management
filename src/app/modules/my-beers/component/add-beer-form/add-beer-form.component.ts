@@ -10,7 +10,11 @@ import { Card } from 'projects/ui-ng/src/public-api';
 })
 export class AddBeerFormComponent {
   @Input()
-  public imgUrl: string = 'https://images.punkapi.com/v2/2.png';
+  public imgUrl: string = '';
+
+  @Input()
+  public disabledSubmitButton: boolean =
+    false; /* Enable or Disable form submit button */
 
   @Output()
   public onSubmit: EventEmitter<Card> = new EventEmitter<Card>();
@@ -33,18 +37,30 @@ export class AddBeerFormComponent {
    * emit those data to parent element
    */
   public handleSubmit(): void {
-    if (this.form.valid) {
+    if (this.form.valid && !this.disabledSubmitButton) {
       const formValue = this.form.value;
+      const tagline = this.sanitizeInput(formValue.genre);
       const newBeer: Card = {
-        name: formValue.name,
-        image_url: '',
-        tagline: formValue.genre,
-        description: formValue.description,
+        name: this.sanitizeInput(formValue.name),
+        image_url: this.imgUrl,
+        tagline: tagline,
+        description: this.sanitizeInput(formValue.description),
+        tooltipText: tagline,
       };
       this.onSubmit.emit(newBeer);
     }
   }
 
+  /**
+   * Sanitize input string [Remove unwanted characters]
+   */
+  public sanitizeInput(input: string): string {
+    return input.replace(/[^\w\s]/gi, '');
+  }
+
+  /**
+   * Emit the cancel event for parent
+   */
   public handleCancel($event: Event): void {
     $event.preventDefault();
     this.onCancel.emit();

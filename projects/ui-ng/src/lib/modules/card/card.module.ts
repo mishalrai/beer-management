@@ -5,7 +5,7 @@ import { CardListComponent } from './components/card-list/card-list.component';
 import { NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
 @NgModule({
   declarations: [CardComponent, CardListComponent],
-  imports: [CommonModule],
-  exports: [CardComponent, CardListComponent, NgbTooltipModule],
+  imports: [CommonModule, NgbTooltipModule],
+  exports: [CardComponent, CardListComponent],
 })
 export class CardModule {}

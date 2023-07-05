@@ -1,4 +1,11 @@
-import { Component, ElementRef, OnDestroy, OnInit } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  OnDestroy,
+  OnInit,
+  ContentChild,
+  TemplateRef,
+} from '@angular/core';
 import { Card } from 'ui-ng';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Subject, take, takeUntil } from 'rxjs';
@@ -14,13 +21,21 @@ export class MyBeersComponent implements OnInit, OnDestroy {
     private modalService: NgbModal,
     private readonly beerService: BeerService
   ) {}
+  @ContentChild('beerModal') beerModal!: TemplateRef<any>;
 
-  public modalTitle: string = 'Add a New Beer';
+  public modalTitle: string = 'Add a New Beer'; /* add beer modal title */
+  public loaderText: string = 'Fetching Beers'; /* Loader text */
+
+  public isFetching: boolean = false;
+  public isAdding: boolean = false;
 
   public beers: Array<Card> = [];
+  public BEER_IMG: string =
+    'https://raw.githubusercontent.com/mishalrai/beer-management/master/cdn/img/beer.png';
 
   private onDestroy: Subject<void> = new Subject<void>();
   ngOnInit(): void {
+    this.isFetching = true;
     this.FetchAllBeers();
   }
 
@@ -41,26 +56,39 @@ export class MyBeersComponent implements OnInit, OnDestroy {
           if (beers?.length) {
             this.beers = beers;
           }
+          this.isFetching = false;
         },
-        error: () => {},
+        error: () => {
+          this.isFetching = false;
+        },
       });
   }
 
-  public openModal(addBeerModal: any) {
+  /**
+   * Open the add beer modal box
+   */
+  public openModal(addBeerModal: any): void {
     this.modalService.open(addBeerModal, {
       ariaLabelledBy: 'modal-basic-title',
     });
   }
 
-  public addNewBeer(beer: Card) {
+  /**
+   * create my new beer
+   */
+  public addNewBeer(beer: Card, modal: any) {
+    this.isAdding = true;
     this.beerService
       .save(beer)
       .pipe(take(1))
       .subscribe({
-        next: (data) => {
-          console.log(data, 'response');
+        next: () => {
+          this.isAdding = false;
+          modal.close();
         },
-        error: () => {},
+        error: () => {
+          this.isAdding = false;
+        },
       });
   }
 

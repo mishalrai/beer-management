@@ -1,0 +1,9 @@
+@import "../../../../../assets/scss/variables";
+$no-data-prefix: ".ui-no-data";
+
+#{$no-data-prefix} {
+    padding: $spacer * 10;
+    margin: $spacer * 5;
+    text-align: center;
+    font-size: 1.2rem;
+}

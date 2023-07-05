@@ -3,28 +3,33 @@
   <ui-button class="ui-button" (onClicked)="openModal(addBeerModal)"
     >Add a new beer</ui-button
   >
+  <ui-loader [text]="loaderText" *ngIf="isFetching"></ui-loader>
+  <ng-container *ngIf="!isFetching">
+    <!-- List of my beers -->
+    <ui-card-list [items]="beers" *ngIf="beers.length; else addNewBeerBox">
+      <ng-template #card let-item>
+        <ui-card [item]="item"></ui-card>
+      </ng-template>
+    </ui-card-list>
 
-  <!-- List of my beers -->
-  <ui-card-list [items]="beers" *ngIf="beers.length; else addNewBeerBox">
-    <ng-template #card let-item>
-      <ui-card [item]="item"></ui-card>
+    <!-- Add new beer box -->
+    <ng-template #addNewBeerBox>
+      <ui-add-new
+        class="mb-5 d-block"
+        (onAddNew)="openModal(addBeerModal)"
+      ></ui-add-new>
     </ng-template>
-  </ui-card-list>
-
-  <!-- Add new beer box -->
-  <ng-template #addNewBeerBox>
-    <ui-add-new
-      class="mb-5 d-block"
-      (onAddNew)="openModal(addBeerModal)"
-    ></ui-add-new>
-  </ng-template>
+  </ng-container>
 </div>
 
 <ng-template #addBeerModal let-modal>
   <app-modal [title]="modalTitle">
     <app-add-beer-form
-      (onCancel)="closeModal()"
-      (onSubmit)="addNewBeer($event)"
+      [imgUrl]="BEER_IMG"
+      [disabledSubmitButton]="isAdding"
+      (onCancel)="modal.close()"
+      (onSubmit)="addNewBeer($event, modal)"
     ></app-add-beer-form>
   </app-modal>
 </ng-template>
+<!--  -->

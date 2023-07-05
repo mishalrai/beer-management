@@ -8,7 +8,7 @@ import { ButtonModule } from 'ui-ng';
 import { AddBeerFormComponent } from './component/add-beer-form/add-beer-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ModalComponent } from './component/modal/modal.component';
-
+import { LoaderModule } from 'ui-ng';
 const routes: Routes = [
   {
     path: '',
@@ -25,6 +25,7 @@ const routes: Routes = [
     AddNewModule,
     ButtonModule,
     ReactiveFormsModule,
+    LoaderModule,
   ],
 })
 export class MyBeersModule {}

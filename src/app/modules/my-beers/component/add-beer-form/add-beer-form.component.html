@@ -98,6 +98,12 @@
     <ui-button class="ui-button-text me-2" (click)="handleCancel($event)">
       Cancel
     </ui-button>
-    <ui-button class="ui-button" [buttonType]="'submit'"> Save </ui-button>
+    <ui-button
+      class="ui-button"
+      [buttonType]="'submit'"
+      [disabled]="disabledSubmitButton"
+    >
+      Save
+    </ui-button>
   </div>
 </form>

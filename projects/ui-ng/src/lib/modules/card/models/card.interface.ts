@@ -3,4 +3,5 @@ export interface Card {
   image_url?: string;
   tagline?: string;
   description?: string;
+  tooltipText?: string;
 }

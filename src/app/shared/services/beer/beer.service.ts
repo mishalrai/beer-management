@@ -35,7 +35,7 @@ export class BeerService {
   ) {}
 
   /**
-   * Provide all beers in pagination
+   * Provide  paginated beers
    */
   public getAll<T>(
     page: number = 1,
@@ -48,12 +48,12 @@ export class BeerService {
   }
 
   /**
-   * Save new beer
+   * Save new beer in my beer list
    */
   public save(beer: Card): Observable<Card> {
     return new Observable<Card>((subscriber: Subscriber<Card>) => {
       try {
-        const myBeers: Array<Card> = [...this.myBeersSub.value, beer];
+        const myBeers: Array<Card> = [beer, ...this.myBeersSub.value];
         this.localStorage.setItem(LOCAL_STORAGE_KEY, myBeers);
         this.myBeersSub.next(myBeers);
         subscriber.next(beer);
@@ -64,12 +64,14 @@ export class BeerService {
   }
 
   /**
-   * Provide current users all saved beers
+   * Provide current user all saved beers
    */
   public getMyAll(): Observable<Array<Card>> {
     try {
       const myBeers = this.localStorage.getItem(LOCAL_STORAGE_KEY);
-      this.myBeersSub.next(myBeers);
+      if (myBeers?.length) {
+        this.myBeersSub.next(myBeers);
+      }
     } catch (error) {
       console.log('Failed to fetch beers');
     }

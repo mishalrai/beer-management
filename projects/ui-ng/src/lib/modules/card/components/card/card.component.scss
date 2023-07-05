@@ -5,6 +5,7 @@ $card-prefix: ".ui-card";
 $name-font-size: 20px;
 $card-padding: $spacer * 8 $spacer * 4 $spacer * 8;
 $card-image-size: 80px;
+$card-tooltip-max-width: 125px;
 
 #{$card-prefix} {
     box-shadow: 0 0 16px 0px rgba($black-color, 0.2);
@@ -40,9 +41,17 @@ $card-image-size: 80px;
 #{$card-prefix}__category {
     color: $secondary-color;
     margin-bottom: $spacer * 2;
+    @include line-clamp(1);
 }
 
 #{$card-prefix}__description {
     color: $text-color;
     @include line-clamp(2);
+}
+
+::ng-deep {
+    ngb-tooltip-window {
+        text-align: left;
+        max-width: $card-tooltip-max-width;
+    }
 }
