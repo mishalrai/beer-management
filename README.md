@@ -1,8 +1,13 @@
-# Single Beer Management System (Angular 16)
+# Beer Management System (Angular 16)
 
 The Single Beer Management System is a web application built with Angular 16 that allows you to manage your beer collection. You can easily add, delete, and list all the beers in your inventory.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.3.
+
+# [LIVE DEMO](https://mishalrai.github.io/beer-management/my-beers)
+
+# Ui-ng Library
+We designed the UI-NG component to include dummy components, allowing us to easily share it across different projects and test it in isolation. This approach enables efficient component reuse and facilitates independent creation and testing.
 
 ## Prerequisites
 
