@@ -2,8 +2,8 @@
 
 $add-new-prefix: ".ui-add-new";
 $add-new-bg-color: #fafafa;
-$add-new-height: 600px;
-$add-new-top-padding: 15%;
+$add-new-height: calc( 100vh - 150px);
+$add-new-top-padding: 25vh;
 
 #{$add-new-prefix} {
     height: $add-new-height;
