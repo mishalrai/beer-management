@@ -130,11 +130,11 @@ class AddNewComponent {
         this.onAddNew.emit();
     }
     static { this.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "16.1.3", ngImport: i0, type: AddNewComponent, deps: [], target: i0.ɵɵFactoryTarget.Component }); }
-    static { this.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "14.0.0", version: "16.1.3", type: AddNewComponent, selector: "ui-add-new", outputs: { onAddNew: "onAddNew" }, ngImport: i0, template: "<div class=\"ui-add-new\">\n  Nothing to see yet. <br />\n  <a href=\"#\" (click)=\"handleClick($event)\">Click here</a> to add your first\n  beer!\n</div>\n", styles: [".ui-add-new{height:600px;background:#fafafa;text-align:center;padding-top:15%;color:#595959;line-height:1.8}.ui-add-new a{text-decoration:none;color:#3866b7}\n"] }); }
+    static { this.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "14.0.0", version: "16.1.3", type: AddNewComponent, selector: "ui-add-new", outputs: { onAddNew: "onAddNew" }, ngImport: i0, template: "<div class=\"ui-add-new\">\n  Nothing to see yet. <br />\n  <a href=\"#\" (click)=\"handleClick($event)\">Click here</a> to add your first\n  beer!\n</div>\n", styles: [".ui-add-new{height:calc(100vh - 150px);background:#fafafa;text-align:center;padding-top:25vh;color:#595959;line-height:1.8}.ui-add-new a{text-decoration:none;color:#3866b7}\n"] }); }
 }
 i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "16.1.3", ngImport: i0, type: AddNewComponent, decorators: [{
             type: Component,
-            args: [{ selector: 'ui-add-new', template: "<div class=\"ui-add-new\">\n  Nothing to see yet. <br />\n  <a href=\"#\" (click)=\"handleClick($event)\">Click here</a> to add your first\n  beer!\n</div>\n", styles: [".ui-add-new{height:600px;background:#fafafa;text-align:center;padding-top:15%;color:#595959;line-height:1.8}.ui-add-new a{text-decoration:none;color:#3866b7}\n"] }]
+            args: [{ selector: 'ui-add-new', template: "<div class=\"ui-add-new\">\n  Nothing to see yet. <br />\n  <a href=\"#\" (click)=\"handleClick($event)\">Click here</a> to add your first\n  beer!\n</div>\n", styles: [".ui-add-new{height:calc(100vh - 150px);background:#fafafa;text-align:center;padding-top:25vh;color:#595959;line-height:1.8}.ui-add-new a{text-decoration:none;color:#3866b7}\n"] }]
         }], propDecorators: { onAddNew: [{
                 type: Output
             }] } });
