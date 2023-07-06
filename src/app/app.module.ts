@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { CardModule, LinkTabModule } from 'ui-ng';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
+import { ToastModule } from 'ui-ng';
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -15,6 +16,7 @@ import { HttpClientModule } from '@angular/common/http';
     NgbModule,
     LinkTabModule,
     HttpClientModule,
+    ToastModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

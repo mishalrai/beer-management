@@ -23,3 +23,9 @@ export * from './lib/modules/loader/components/loader/loader.component';
 
 export * from './lib/modules/no-data/no-data.module';
 export * from './lib/modules/no-data/components/no-data/no-data.component';
+
+export * from './lib/modules/toast/toast.module';
+export * from './lib/modules/toast/model/toast.enum';
+export * from './lib/modules/toast/model/toast.interface';
+export * from './lib/modules/toast/components/toast/toast.component';
+export * from './lib/modules/toast/services/toast.service';

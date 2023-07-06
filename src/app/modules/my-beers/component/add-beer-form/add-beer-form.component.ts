@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DomSanitizer } from '@angular/platform-browser';
-import { Card } from 'projects/ui-ng/src/public-api';
+import { Card } from 'ui-ng';
 
 @Component({
   selector: 'app-add-beer-form',
@@ -41,6 +41,7 @@ export class AddBeerFormComponent {
       const formValue = this.form.value;
       const tagline = this.sanitizeInput(formValue.genre);
       const newBeer: Card = {
+        id: new Date().getTime(),
         name: this.sanitizeInput(formValue.name),
         image_url: this.imgUrl,
         tagline: tagline,

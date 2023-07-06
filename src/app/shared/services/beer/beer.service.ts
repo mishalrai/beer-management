@@ -77,4 +77,27 @@ export class BeerService {
     }
     return this.myBeers$;
   }
+
+  /**
+   * Delete Beers from the my beers list
+   */
+  public delete(id: number): Observable<Card> {
+    return new Observable((subscriber) => {
+      try {
+        let currentBeer;
+        const newBeerList = this.myBeersSub.value.filter((beer: Card) => {
+          if (beer.id === id) {
+            currentBeer = beer;
+            return false;
+          }
+          return true;
+        });
+        this.localStorage.setItem(LOCAL_STORAGE_KEY, newBeerList);
+        this.myBeersSub.next(newBeerList);
+        subscriber.next(currentBeer);
+      } catch (error) {
+        subscriber.error(error);
+      }
+    });
+  }
 }

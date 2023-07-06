@@ -1,0 +1,57 @@
+@import "../../../../../assets/scss/variables";
+
+$toast-gap: $spacer * 10;
+ngb-toast {
+    border: none;
+    border-left: 5px solid;
+    border-radius: $border-radius;
+    padding: $spacer * 4;
+    background-color: $white-color;
+    margin-top: $spacer * 2;
+}
+
+:host {
+    position: fixed;
+    left: $toast-gap;
+    bottom: $toast-gap;
+
+    ::ng-deep {
+        ngb-toast {
+            &.success {
+                border-color: $success-color;
+                .toast-header {
+                    color: $success-color;
+                }
+            }
+            &.error {
+                border-color: $error-color;
+                .toast-header {
+                    color: $error-color;
+                }
+            }
+            &.info {
+                border-color: $info-color;
+                .toast-header {
+                    color: $info-color;
+                }
+            }
+        }
+        .toast-header {
+            border-bottom: none;
+            font-size: 0.9rem;
+            text-transform: capitalize;
+
+            + .toast-body {
+                margin-top: $spacer;
+            }
+        }
+
+        .toast-header,
+        .toast-body {
+            padding: 0;
+        }
+        .btn-close {
+            font-size: 0.7rem;
+        }
+    }
+}

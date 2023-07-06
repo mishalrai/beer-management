@@ -1,27 +1,34 @@
-# BeerManagement
+# Single Beer Management System (Angular 16)
+
+The Single Beer Management System is a web application built with Angular 16 that allows you to manage your beer collection. You can easily add, delete, and list all the beers in your inventory.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.3.
 
-## Development server
+## Prerequisites
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Before running the application, ensure that you have the following software installed on your local system:
 
-## Code scaffolding
+- Node.js (latest version)
+- Angular CLI (< 16)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Installation
 
-## Build
+- Clone the repository or download the source code.
+- Open your terminal or command prompt and navigate to the project directory.
+- Install the project dependencies by running the following command: `npm install`
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Running the Application
 
-## Running unit tests
+To start the development server and run the application, follow these steps:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- In the terminal or command prompt, navigate to the project directory.
+- Run the following command: `ng serve`
+- Open your web browser and go to http://localhost:4200 to access the Single Beer Management System.
 
-## Running end-to-end tests
+## Usage
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Once the application is running, you can perform the following actions:
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- Add a Beer: Click on the "Add a new beer" button and fill in the details of the beer you want to add to your collection.
+- Delete a Beer: Select a beer from the list and click on the "Delete" button to remove it from your inventory.
+- List Beers: The application displays a list of all the beers in your collection, including their details.

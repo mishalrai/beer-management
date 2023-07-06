@@ -10,12 +10,40 @@
   </div>
 
   <div class="ui-card__wrapper">
-    <h3 class="ui-card__name" *ngIf="item.name">{{ item.name }}</h3>
-    <div class="ui-card__category" *ngIf="item.tagline">
-      {{ item.tagline }}
+    <div class="ui-card__description">
+      <h3 class="ui-card__name" *ngIf="item.name">{{ item.name }}</h3>
+      <!-- Category -->
+      <div class="ui-card__category" *ngIf="item.tagline">
+        {{ item.tagline }}
+      </div>
+      <!-- Description -->
+      <div class="ui-card__description" *ngIf="item.description">
+        {{ item.description }}
+      </div>
     </div>
-    <div class="ui-card__description" *ngIf="item.description">
-      {{ item.description }}
+
+    <!-- Actions -->
+    <div class="ui-card__actions" *ngIf="showActions">
+      <button
+        [placement]="tooltipPosition"
+        ngbTooltipClass="card-tooltip"
+        [ngbTooltip]="'Delete'"
+        class="ui-card__delete"
+        (click)="handleDelete()"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          fill="currentColor"
+          class="bi bi-x-lg"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"
+          />
+        </svg>
+      </button>
     </div>
   </div>
 </div>

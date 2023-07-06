@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Card } from 'ui-ng';
 
 @Injectable({
   providedIn: 'root',
@@ -10,7 +11,7 @@ export class LocalStorageService {
     localStorage.setItem(key, JSON.stringify(value));
   }
 
-  getItem(key: string): any {
+  getItem(key: string): Array<Card> {
     const item = localStorage.getItem(key);
     return item ? JSON.parse(item) : null;
   }

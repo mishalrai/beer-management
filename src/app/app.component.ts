@@ -1,14 +1,7 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RoutePaths } from './models/route-paths.enum';
-import { LinkTab } from 'ui-ng';
-import {
-  ActivatedRoute,
-  NavigationEnd,
-  Route,
-  Router,
-  RouterStateSnapshot,
-  RoutesRecognized,
-} from '@angular/router';
+import { LinkTab, ToastType } from 'ui-ng';
+import { NavigationEnd, Router } from '@angular/router';
 import { filter, take } from 'rxjs';
 
 @Component({
@@ -33,10 +26,7 @@ export class AppComponent implements OnInit {
     },
   ];
 
-  constructor(
-    private readonly router: Router,
-    private activatedRoute: ActivatedRoute
-  ) {}
+  constructor(private readonly router: Router) {}
 
   ngOnInit(): void {
     this.setActiveTab();
