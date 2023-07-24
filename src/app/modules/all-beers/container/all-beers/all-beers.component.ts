@@ -56,6 +56,8 @@ export class AllBeersComponent implements OnInit {
           this.isFetching = false;
         }
         this.isFetchingMore = false;
+        
+        this.currentPage++;
       },
       error: (error) => {
         // Update fetch states
@@ -77,7 +79,6 @@ export class AllBeersComponent implements OnInit {
    */
   public loadMore(): void {
     this.isFetchingMore = true;
-    this.currentPage++;
     this.fetchBeers();
   }
 }
